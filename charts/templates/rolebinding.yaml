@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app: leader-app
+    group: io.mseemann
+  name: leader
+roleRef:
+  apiGroup: ""
+  kind: Role
+  name: leader
+subjects:
+  - kind: ServiceAccount
+    name: default
+    apiGroup: ""

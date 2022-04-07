@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leader-app-deployment
+  namespace: poc
+  labels:
+    app: leader-app
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: leader-app
+  template:
+    metadata:
+      labels:
+        app: leader-app
+    spec:
+      containers:
+      - name: leader-app
+        image: "{{ .Values.image }}:{{ .Values.version}}"
+        imagePullPolicy: IfNotPresent
+        ports:
+          - name: http
+            containerPort: 8080
+            protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: http

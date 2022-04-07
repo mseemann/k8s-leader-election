@@ -1,0 +1,24 @@
+spring:
+  application:
+    name:                                               leader-app
+
+  cloud:
+    kubernetes:
+      leader:
+        config-map-name:                              leader
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:                                        "*"
+  endpoint:
+    prometheus:
+      enabled:                                          true
+    health:
+      show-details:                                     always
+    shutdown:
+      enabled:                                          true
+  health:
+    livenessState.enabled:                              true
+    readinessState.enabled:                             true

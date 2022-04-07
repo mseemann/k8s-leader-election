@@ -1,0 +1,4 @@
+replicaCount: 2
+
+image: k8s-leader-election
+version: 0.0.1-SNAPSHOT
