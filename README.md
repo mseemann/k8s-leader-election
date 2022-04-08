@@ -1,7 +1,7 @@
 # How to run the poc
 
 * build a docker container that conatins the spring boot app
-  **spring-boot:build-image**
+  **mvn spring-boot:build-image**
 
 * start a kubernetes cluster locally - for example you may use docker for desktop and start kubernetes
 
