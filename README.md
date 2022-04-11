@@ -1,6 +1,6 @@
 # How to run the poc
 
-* build a docker container that conatins the spring boot app
+* build a docker container that contains the spring boot app
   **mvn spring-boot:build-image**
 
 * start a kubernetes cluster locally - for example you may use docker for desktop and start kubernetes
@@ -27,5 +27,3 @@ cloud.kubernetes.leader.config-map-name=leader
 In your code you only need to listen to the OnGrantedEvent and OnRevokedEvent to be informed about the leadership.
 
 The app will read and modify the config map in the k8s cluster. That's why there must be a role and a role binding that grants these permissions.
-
-To make it simple the tests are disabled. Otherwise the app would try to talk to a kubernetes cluster. This must be solved by a profile that is only active in the kubernetes environment.
