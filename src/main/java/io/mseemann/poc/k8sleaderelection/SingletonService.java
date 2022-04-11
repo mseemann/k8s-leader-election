@@ -25,7 +25,7 @@ public class SingletonService {
   }
 
   public void start() {
-    log.info("SingletonService has been started on the master pod");
+    log.info("SingletonService has been started on the leader pod");
     started = true;
   }
 
@@ -34,7 +34,7 @@ public class SingletonService {
   }
 
   public void stop() {
-    log.info("SingletonService has been stopped on the master pod");
+    log.info("SingletonService has been stopped on the leader pod");
     started = false;
   }
 
