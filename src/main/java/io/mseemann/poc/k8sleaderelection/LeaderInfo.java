@@ -12,6 +12,6 @@ public class LeaderInfo {
 
   @GetMapping("/are-you-the-leader")
   public String areYouTheLeader() {
-    return singletonService.isStarted() ? "I am the leader!" : "I am not the leader";
+    return singletonService.isLeader() ? "I am the leader!" : "I am not the leader";
   }
 }
